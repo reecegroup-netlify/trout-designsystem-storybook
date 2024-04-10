@@ -11,7 +11,7 @@ interface BadgeProps {
   withBorder: boolean;
 }
 
-export function Badge({ label, color, withBorder, ...props }: BadgeProps) {
+export function Badge({ label, color = "red", withBorder, ...props }: BadgeProps) {
   return (
     <span
       className={cn(
