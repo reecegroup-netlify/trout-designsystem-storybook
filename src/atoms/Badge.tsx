@@ -26,6 +26,11 @@ interface BadgeProps {
    */
   withDot?: boolean;
   /**
+   * Should it have a remove button?
+   * If so, withBorder is true and withDot is false
+   */
+  removeButton?: boolean;
+  /**
    * Optional click handler
    */
   onClick?: () => void;
@@ -40,9 +45,15 @@ export function Badge({
   badgeStyle,
   withBorder = false,
   withDot = false,
+  removeButton = false,
   onClick,
   ...props
 }: BadgeProps) {
+  if (removeButton) {
+    withBorder = true;
+    withDot = false;
+  }
+
   // with either dot or border or neither but not both
   const shouldBeColored =
     (withDot && !withBorder) || (withBorder && !withDot) || (!withBorder && !withDot);
@@ -64,6 +75,7 @@ export function Badge({
           : ""
       )}
       onClick={onClick}
+      {...props}
     >
       {withDot && (
         <svg
@@ -79,6 +91,35 @@ export function Badge({
       )}
 
       {label}
+
+      {removeButton && <RemoveButton color={color} />}
     </span>
   );
 }
+
+const RemoveButton = ({ color }: { color: SUPPORTED_COLORS }) => {
+  const buttonColorMap = {
+    "hover:bg-gray-500/20": color === "gray",
+    "hover:bg-red-600/20": color === "red",
+    "hover:bg-blue-600/20": color === "blue",
+  };
+
+  const checkboxColorMap = {
+    "stroke-gray-600/50 group-hover:stroke-gray-600/75": color === "gray",
+    "stroke-red-600/50 group-hover:stroke-red-600/75": color === "red",
+    "stroke-blue-700/50 group-hover:stroke-blue-700/75": color === "blue",
+  };
+
+  return (
+    <button
+      type="button"
+      className={cn("group relative -mr-1 h-3.5 w-3.5 rounded-sm", buttonColorMap)}
+    >
+      <span className="sr-only">Remove</span>
+      <svg viewBox="0 0 14 14" className={cn("h-3.5 w-3.5", checkboxColorMap)}>
+        <path d="M4 4l6 6m0-6l-6 6" />
+      </svg>
+      <span className="absolute -inset-1" />
+    </button>
+  );
+};
