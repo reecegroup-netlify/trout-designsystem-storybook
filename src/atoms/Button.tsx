@@ -100,11 +100,3 @@ export function Button({
     </button>
   );
 }
-
-<Button
-  label="Button text"
-  buttonType="primary"
-  buttonSize="md"
-  buttonStyle="rounded"
-  textColor="dark"
-/>;
