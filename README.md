@@ -2,8 +2,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Install and run storybook.
 
 ```bash
-npm run dev
+fnm use #or nvm
+npm install
+npm run storybook
 ```
