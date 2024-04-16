@@ -24,16 +24,16 @@ export const Primary: Story = {
     buttonType: "primary",
     buttonSize: "md",
     buttonStyle: "rounded",
-    textColor: "dark",
+    textColor: "light",
   },
 };
 
 export const Secondary: Story = {
   args: {
     label: "Button",
-    buttonType: "primary",
+    buttonType: "secondary",
     buttonSize: "md",
     buttonStyle: "rounded",
-    textColor: "light",
+    textColor: "dark",
   },
 };

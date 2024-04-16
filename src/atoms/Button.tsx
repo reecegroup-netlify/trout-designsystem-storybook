@@ -1,10 +1,11 @@
 import { cn } from "@/utils";
 import { ReactElement } from "react";
+import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 
 type BUTTON_TYPES = "primary" | "secondary" | "soft";
 type BUTTON_STYLES = "square" | "rounded";
 type BUTTON_SIZE = "xs" | "sm" | "md" | "lg" | "xl";
-type TEXT_COLOR = "light" | "dark";
+type TEXT_COLOR = "light" | "dark" | "grey";
 
 interface ButtonProps {
   /**
@@ -66,8 +67,10 @@ export function Button({
     "px-3.5 py-2.5 text-sm": buttonSize === "xl",
   };
 
+  //TODO add hover colors here
   const styleColorMap = {
     "bg-primary": buttonType === "primary",
+    "bg-white border border-grey-500": buttonType === "secondary",
   };
 
   let cornerStyle =
@@ -77,9 +80,10 @@ export function Button({
         ? "rounded"
         : "rounded-md";
 
-  let textStyle = {
+  let textStyleMap = {
     "text-light": textColor === "light",
     "text-dark": textColor === "dark",
+    "text-grey-500": textColor === "grey",
   };
 
   return (
@@ -87,14 +91,14 @@ export function Button({
       type="button"
       className={cn(
         // Default
-        "font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
+        "flex gap-2 font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
         cornerStyle,
         styleSizeMap,
         styleColorMap,
-        textStyle
+        textStyleMap
       )}
     >
-      {icon && iconPosition === "leading" ? <svg></svg> : null}
+      {iconPosition === "leading" ? <ArrowLongLeftIcon className="h-4 self-center" /> : null}
       {label}
       {icon && iconPosition === "trailing" ? <svg></svg> : null}
     </button>
