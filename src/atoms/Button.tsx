@@ -61,7 +61,6 @@ export function Button({
   icon,
   iconPosition,
   onClick,
-  ...props
 }: ButtonProps) {
   const styleSizeMap = {
     "px-2 py-1 text-xs": buttonSize === "xs",
@@ -73,7 +72,7 @@ export function Button({
 
   const styleColorMap = {
     "bg-primary hover:bg-primary/80": buttonType === "primary",
-    "bg-white border border-primary": buttonType === "secondary",
+    "bg-light border border-primary hover:bg-primary/5": buttonType === "secondary",
     "bg-primary/10 hover:bg-primary/30": buttonType === "soft",
   };
 
@@ -101,6 +100,7 @@ export function Button({
         styleColorMap,
         textStyleMap
       )}
+      onClick={onClick}
     >
       {icon && iconPosition === "leading" ? icon : null}
       {label}
