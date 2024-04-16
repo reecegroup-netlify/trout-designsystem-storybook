@@ -1,4 +1,4 @@
-import { cn } from "@/utils";
+import { cn } from "../utils";
 import { ReactElement } from "react";
 import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 
