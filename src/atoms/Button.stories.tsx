@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { Button } from "./Button";
+import { ArrowLongLeftIcon, ArrowLongRightIcon } from "@heroicons/react/24/solid";
 
 const meta = {
   title: "Atoms/Button",
@@ -13,6 +14,13 @@ const meta = {
   },
   tags: ["autodocs"],
   args: { onClick: fn() },
+  argTypes: {
+    icon: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -28,6 +36,18 @@ export const Primary: Story = {
   },
 };
 
+export const PrimaryWithIcon: Story = {
+  args: {
+    label: "Button",
+    buttonType: "primary",
+    buttonSize: "md",
+    buttonStyle: "rounded",
+    textColor: "light",
+    icon: <ArrowLongLeftIcon className="h-4 self-center" />,
+    iconPosition: "leading",
+  },
+};
+
 export const Secondary: Story = {
   args: {
     label: "Button",
@@ -35,5 +55,17 @@ export const Secondary: Story = {
     buttonSize: "md",
     buttonStyle: "rounded",
     textColor: "dark",
+  },
+};
+
+export const SecondaryWithIcon: Story = {
+  args: {
+    label: "Button",
+    buttonType: "secondary",
+    buttonSize: "md",
+    buttonStyle: "rounded",
+    textColor: "dark",
+    icon: <ArrowLongRightIcon className="h-4 self-center" />,
+    iconPosition: "trailing",
   },
 };

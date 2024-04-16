@@ -7,7 +7,7 @@ type BUTTON_STYLES = "square" | "rounded";
 type BUTTON_SIZE = "xs" | "sm" | "md" | "lg" | "xl";
 type TEXT_COLOR = "light" | "dark" | "grey";
 
-interface ButtonProps {
+type ButtonProps = {
   /**
    * Button contents
    */
@@ -25,23 +25,27 @@ interface ButtonProps {
    */
   buttonSize: BUTTON_SIZE;
   /**
-   * What size is it?
+   * What color is the text
    */
   textColor: TEXT_COLOR;
-  /**
-   * Is there an icon
-   */
-  icon?: ReactElement;
-  /**
-   * What position is the icon in?
-   */
-  // TODO: make this conditionally required depending on icon
-  iconPosition?: ICON_POSITION;
-  /**
-   * Optional click handler
-   */
+
   onClick?: () => void;
-}
+} & (
+  | {
+      /**
+       * Is there an icon
+       */
+      icon: ReactElement;
+      /**
+       * What position is the icon in?
+       */
+      iconPosition: ICON_POSITION;
+      /**
+       * Optional click handler
+       */
+    }
+  | { icon?: never; iconPosition?: never }
+);
 
 type ICON_POSITION = "leading" | "trailing";
 
@@ -67,10 +71,10 @@ export function Button({
     "px-3.5 py-2.5 text-sm": buttonSize === "xl",
   };
 
-  //TODO add hover colors here
   const styleColorMap = {
-    "bg-primary": buttonType === "primary",
-    "bg-white border border-grey-500": buttonType === "secondary",
+    "bg-primary hover:bg-primary/80": buttonType === "primary",
+    "bg-white border border-primary": buttonType === "secondary",
+    "bg-primary/10 hover:bg-primary/30": buttonType === "soft",
   };
 
   let cornerStyle =
@@ -98,9 +102,9 @@ export function Button({
         textStyleMap
       )}
     >
-      {iconPosition === "leading" ? <ArrowLongLeftIcon className="h-4 self-center" /> : null}
+      {icon && iconPosition === "leading" ? icon : null}
       {label}
-      {icon && iconPosition === "trailing" ? <svg></svg> : null}
+      {icon && iconPosition === "trailing" ? icon : null}
     </button>
   );
 }
