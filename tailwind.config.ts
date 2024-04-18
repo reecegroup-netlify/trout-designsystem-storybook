@@ -1,16 +1,5 @@
 import type { Config } from "tailwindcss";
-
-const customColors = {
-  primary: {
-    DEFAULT: "#003057",
-  },
-  dark: {
-    DEFAULT: "#000000",
-  },
-  light: {
-    DEFAULT: "#FFFFFF",
-  },
-};
+import { customColourMap as colors } from "@/tokens";
 
 const config: Config = {
   content: [
@@ -22,7 +11,7 @@ const config: Config = {
     "./src/modules/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: customColors,
+    colors,
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
