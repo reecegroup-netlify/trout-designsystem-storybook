@@ -72,7 +72,7 @@ export function Button({
 
   const styleColorMap = {
     "bg-primary hover:bg-primary/80": buttonType === "primary",
-    "bg-light border border-primary hover:bg-primary/5": buttonType === "secondary",
+    "bg-white border border-primary hover:bg-primary/5": buttonType === "secondary",
     "bg-primary/10 hover:bg-primary/30": buttonType === "soft",
   };
 
