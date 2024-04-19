@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { customColourMap as colors } from "@/tokens";
+import { customColourMap as colors } from "./src/tokens";
 
 const config: Config = {
   content: [

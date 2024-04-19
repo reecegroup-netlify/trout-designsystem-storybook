@@ -32,7 +32,7 @@ export const Primary: Story = {
     buttonType: "primary",
     buttonSize: "md",
     buttonStyle: "rounded",
-    textColor: "light",
+    textColor: "white",
   },
 };
 
@@ -42,7 +42,7 @@ export const PrimaryWithIcon: Story = {
     buttonType: "primary",
     buttonSize: "md",
     buttonStyle: "rounded",
-    textColor: "light",
+    textColor: "white",
     icon: <ArrowLongLeftIcon className="h-4 self-center" />,
     iconPosition: "leading",
   },
@@ -54,7 +54,7 @@ export const Secondary: Story = {
     buttonType: "secondary",
     buttonSize: "md",
     buttonStyle: "rounded",
-    textColor: "dark",
+    textColor: "black",
   },
 };
 
@@ -64,7 +64,7 @@ export const SecondaryWithIcon: Story = {
     buttonType: "secondary",
     buttonSize: "md",
     buttonStyle: "rounded",
-    textColor: "dark",
+    textColor: "black",
     icon: <ArrowLongRightIcon className="h-4 self-center" />,
     iconPosition: "trailing",
   },

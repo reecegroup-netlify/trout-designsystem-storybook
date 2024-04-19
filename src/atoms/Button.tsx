@@ -5,7 +5,7 @@ import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 type BUTTON_TYPES = "primary" | "secondary" | "soft";
 type BUTTON_STYLES = "square" | "rounded";
 type BUTTON_SIZE = "xs" | "sm" | "md" | "lg" | "xl";
-type TEXT_COLOR = "light" | "dark" | "grey";
+type TEXT_COLOR = "white" | "black" | "grey";
 
 type ButtonProps = {
   /**
@@ -84,9 +84,9 @@ export function Button({
         : "rounded-md";
 
   let textStyleMap = {
-    "text-light": textColor === "light",
-    "text-dark": textColor === "dark",
-    "text-grey-500": textColor === "grey",
+    "text-white": textColor === "white",
+    "text-black": textColor === "black",
+    "text-secondary-500": textColor === "grey",
   };
 
   return (

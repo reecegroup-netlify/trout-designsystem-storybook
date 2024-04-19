@@ -68,9 +68,9 @@ export function Badge({
 
         shouldBeColored
           ? {
-              "bg-gray-50 text-gray-600 ring-gray-500/10": color === "gray",
-              "bg-red-50 text-red-700 ring-red-600/10": color === "red",
-              "bg-blue-50 text-blue-700 ring-blue-700/10": color === "blue",
+              "bg-secondary-100 text-secondary-600 ring-secondary-500/10": color === "gray",
+              "bg-status-error-100 text-status-error-500 ring-status-error-500/10": color === "red",
+              "bg-status-info-100 text-status-info-500 ring-status-info-700/10": color === "blue",
             }
           : ""
       )}
@@ -80,8 +80,8 @@ export function Badge({
       {withDot && (
         <svg
           className={cn("h-1.5 w-1.5", {
-            "fill-red-500": color === "red",
-            "fill-blue-500": color === "blue",
+            "fill-status-error-500": color === "red",
+            "fill-status-info-500": color === "blue",
           })}
           viewBox="0 0 6 6"
           aria-hidden="true"
@@ -99,15 +99,15 @@ export function Badge({
 
 const RemoveButton = ({ color }: { color: SUPPORTED_COLORS }) => {
   const buttonColorMap = {
-    "hover:bg-gray-500/20": color === "gray",
-    "hover:bg-red-600/20": color === "red",
-    "hover:bg-blue-600/20": color === "blue",
+    "hover:bg-secondary-500/20": color === "gray",
+    "hover:bg-status-error-500/20": color === "red",
+    "hover:bg-status-info-500/20": color === "blue",
   };
 
   const checkboxColorMap = {
-    "stroke-gray-600/50 group-hover:stroke-gray-600/75": color === "gray",
-    "stroke-red-600/50 group-hover:stroke-red-600/75": color === "red",
-    "stroke-blue-700/50 group-hover:stroke-blue-700/75": color === "blue",
+    "stroke-secondary-600/50 group-hover:stroke-secondary-600/75": color === "gray",
+    "stroke-status-error-500/50 group-hover:stroke-status-error-500/75": color === "red",
+    "stroke-status-info-500/50 group-hover:stroke-status-info-500/75": color === "blue",
   };
 
   return (
