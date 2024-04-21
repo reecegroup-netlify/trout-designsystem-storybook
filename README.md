@@ -7,7 +7,7 @@ Install and run storybook.
 ```bash
 fnm use #or nvm
 npm install
-npm run storybook
+npm run start
 ```
 
 ## Design Tokens
