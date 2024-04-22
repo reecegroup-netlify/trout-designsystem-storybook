@@ -1,6 +1,5 @@
 import { cn } from "../utils";
 import { ReactElement } from "react";
-import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 
 type BUTTON_TYPES = "primary" | "secondary" | "soft";
 type BUTTON_STYLES = "square" | "rounded";
