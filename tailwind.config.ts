@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import forms from "@tailwindcss/forms";
 import { customColourMap as colors } from "./src/tokens";
 
 const config: Config = {
@@ -19,6 +20,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [forms],
 };
 export default config;
