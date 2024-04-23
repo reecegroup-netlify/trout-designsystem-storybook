@@ -17,8 +17,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const LabelOnly: Story = {
   args: { label: "Something", inline: false },
+};
+
+export const LabelAndDescription: Story = {
+  args: { label: "Username", description: "Get notified on new projects.", inline: false },
 };
 
 export const Error: Story = {

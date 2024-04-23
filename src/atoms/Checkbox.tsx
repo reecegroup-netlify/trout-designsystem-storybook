@@ -15,6 +15,10 @@ type CheckboxProps = {
    * Should description be inline?
    */
   inline: boolean;
+  /**
+   * Is the checkbox left or right-aligned
+   */
+  checkboxPosition: "left" | "right";
 } & (
   | {
       /**
@@ -29,7 +33,14 @@ type CheckboxProps = {
   | { isError?: never; errorMessage?: never }
 );
 
-export function Checkbox({ label, description, inline, isError, errorMessage }: CheckboxProps) {
+export function Checkbox({
+  label,
+  description,
+  inline,
+  isError,
+  errorMessage,
+  checkboxPosition,
+}: CheckboxProps) {
   const boxId = label.toLowerCase();
   const descriptionId = boxId + "-description";
   const textColorMap = {
@@ -39,34 +50,41 @@ export function Checkbox({ label, description, inline, isError, errorMessage }: 
   };
 
   return (
-    <div className="relative">
-      <div className="flex">
-        <div className="flex items-center">
-          <input
-            id={boxId}
-            name={boxId}
-            aria-describedby={description ? descriptionId : undefined}
-            type="checkbox"
-            className={cn("h-4 w-4 rounded", textColorMap)}
-          />
+    <div className="space-y-5">
+      <div className="relative flex flex-col items-start">
+        <div className="flex gap-3">
+          <div
+            className={cn("flex h-6 items-center", {
+              "order-first": checkboxPosition === "left",
+              "order-last": checkboxPosition === "right",
+            })}
+          >
+            <input
+              id={boxId}
+              name={boxId}
+              aria-describedby={description ? descriptionId : undefined}
+              type="checkbox"
+              className={cn("h-4 w-4 rounded", textColorMap)}
+            />
+          </div>
+          <div className="text-sm leading-6">
+            <label htmlFor={boxId} className="font-medium text-gray-900">
+              {label}
+            </label>
+            {description && (
+              <ParaOrSpan id={descriptionId} inline={inline}>
+                {description}
+              </ParaOrSpan>
+            )}
+          </div>
         </div>
-        <div className="ml-3 text-sm leading-6">
-          <label htmlFor={boxId} className="font-medium text-gray-900">
-            {label}
-          </label>
-          {description && (
-            <ParaOrSpan id={descriptionId} inline={inline}>
-              {description}
-            </ParaOrSpan>
-          )}
-        </div>
+        {isError && (
+          <div className="mt-1 flex">
+            <ExclamationCircleIcon height={16} className="text-status-error-500 self-center" />
+            <p className="text-status-error-500 ml-3 text-sm">{errorMessage}</p>
+          </div>
+        )}
       </div>
-      {isError && (
-        <div className="mt-1 flex">
-          <ExclamationCircleIcon height={16} className="text-status-error-500 self-center" />
-          <p className="text-status-error-500 ml-3 text-sm">{errorMessage}</p>
-        </div>
-      )}
     </div>
   );
 }
