@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { DropdownGroup } from "./DropdownGroup";
 
 const meta = {
-  title: "Atoms/DropdownGroup",
+  title: "Atoms/Button",
   component: DropdownGroup,
   parameters: {
     // Order the controls
@@ -30,4 +30,4 @@ const dropdownSelections = [
   { content: "Export PDF", clickHandler: dummyClick },
 ];
 
-export const WithDropdown: Story = { args: { groupItems: dropdownSelections } };
+export const Dropdown: Story = { args: { groupItems: dropdownSelections } };

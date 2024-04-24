@@ -12,7 +12,6 @@ const meta = {
     // Center component
     layout: "centered",
   },
-  tags: ["autodocs"],
   args: { onClick: fn() },
   argTypes: {
     icon: {

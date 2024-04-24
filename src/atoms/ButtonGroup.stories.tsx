@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ButtonGroup, ButtonGroupItem } from "./ButtonGroup";
 
 const meta = {
-  title: "Atoms/ButtonGroup",
+  title: "Atoms/Button/Groups",
   component: ButtonGroup,
   parameters: {
     // Order the controls
