@@ -29,6 +29,7 @@ export const WithBorder: Story = {
     badgeStyle: "square",
     withBorder: true,
     withDot: false,
+    removeButton: false,
   },
 };
 
