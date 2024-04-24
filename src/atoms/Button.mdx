@@ -3,6 +3,7 @@ import { Canvas, Meta, Story, Title } from "@storybook/blocks";
 import * as ButtonStories from "./Button.stories";
 import * as ButtonGroupStories from "./ButtonGroup.stories";
 import * as DropdownGroupStories from "./DropdownGroup.stories";
+import * as IconButtonStories from "./IconButton.stories";
 
 # Buttons
 
@@ -19,6 +20,10 @@ Buttons can feature an icon.
 
 <Canvas of={ButtonStories.PrimaryWithIcon} />
 <Canvas of={ButtonStories.SecondaryWithIcon} />
+
+Buttons can be icon-only. These icons are from Tailwind's companion icon library, [heroicons](https://heroicons.com/).
+
+<Canvas of={IconButtonStories.IconOnly} />
 
 <Title>Button Groups & Dropdowns</Title>
 
