@@ -1,6 +1,6 @@
 import { cn } from "@/utils";
 import { ExclamationCircleIcon } from "@heroicons/react/16/solid";
-import { ReactElement, ReactNode } from "react";
+import { ReactNode } from "react";
 
 type CheckboxProps = {
   /**

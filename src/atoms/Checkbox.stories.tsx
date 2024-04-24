@@ -18,13 +18,24 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const LabelOnly: Story = {
-  args: { label: "Something", inline: false },
+  args: { label: "Agency updates", inline: false, checkboxPosition: "left" },
 };
 
 export const LabelAndDescription: Story = {
-  args: { label: "Username", description: "Get notified on new projects.", inline: false },
+  args: {
+    label: "Agency updates",
+    description: "Get notified on new projects.",
+    inline: false,
+    checkboxPosition: "left",
+  },
 };
 
 export const Error: Story = {
-  args: { label: "Something", inline: false, isError: true, errorMessage: "This box is required." },
+  args: {
+    label: "Agency updates",
+    inline: false,
+    isError: true,
+    errorMessage: "This box is required.",
+    checkboxPosition: "left",
+  },
 };
