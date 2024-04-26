@@ -20,10 +20,21 @@ type AvatarProps = {
    * What is their avatar image?
    */
   avatarImage?: string;
+  /**
+   * Should the avatar have a border?
+   */
+  withBorder?: boolean;
   children?: ReactElement<typeof AvatarNotification>;
 };
 
-export function Avatar({ size, cornerStyle, avatarImage, userInitials, children }: AvatarProps) {
+export function Avatar({
+  size,
+  cornerStyle,
+  avatarImage,
+  userInitials,
+  withBorder,
+  children,
+}: AvatarProps) {
   const sizeMap = {
     "h-6 w-6 text-xs": size === "xs",
     "h-8 w-8 text-sm": size === "sm",
@@ -34,7 +45,9 @@ export function Avatar({ size, cornerStyle, avatarImage, userInitials, children 
 
   const cornerType = cornerStyle === "circular" ? "rounded-full" : "rounded-md";
 
-  const styleMaps = [sizeMap, cornerType];
+  const borderStyle = withBorder ? "ring-2 ring-white" : null;
+
+  const styleMaps = [sizeMap, cornerType, borderStyle];
 
   //   update styles
   if (!avatarImage) {
