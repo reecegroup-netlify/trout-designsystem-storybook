@@ -75,6 +75,7 @@ export function Button({
     "bg-primary/10 hover:bg-primary/30": buttonType === "soft",
   };
 
+  // smaller non-rounded-full buttons have less corner rounding
   let cornerStyle =
     buttonStyle === "rounded"
       ? "rounded-full"
