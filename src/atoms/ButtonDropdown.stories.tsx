@@ -1,16 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { DropdownGroup } from "./DropdownGroup";
+import { ButtonDropdown } from "./ButtonDropdown";
 
 const meta = {
   title: "Atoms/Button",
-  component: DropdownGroup,
+  component: ButtonDropdown,
   parameters: {
-    // Order the controls
     controls: { sort: "requiredFirst" },
-    // Center component
     layout: "centered",
   },
-  // tags: ["autodocs"],
   argTypes: {
     groupItems: {
       table: {
@@ -18,7 +15,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof DropdownGroup>;
+} satisfies Meta<typeof ButtonDropdown>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
