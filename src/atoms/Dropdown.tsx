@@ -1,6 +1,7 @@
 import { cn } from "@/utils";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import React from "react";
 import { Fragment, ReactElement } from "react";
 
 type ButtonDropdownItem = {
@@ -30,10 +31,13 @@ export function DropdownItem(props: DropdownItemProps) {
           onClick={isButton ? props.onClick : undefined}
           className={cn(
             active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-            "block w-full px-4 py-2 text-left text-sm"
+            "flex w-full px-4 py-2 text-left text-sm"
           )}
         >
-          {props.icon && props.icon}
+          {props.icon &&
+            React.cloneElement(props.icon, {
+              className: "mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500",
+            })}
           {props.text}
         </Element>
       )}
