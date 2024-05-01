@@ -101,3 +101,18 @@ export const WithIcons: Story = {
     </Dropdown>
   ),
 };
+
+export const WithMinimalIcon: Story = {
+  //@ts-ignore
+  args: {},
+  render: () => (
+    <Dropdown isMinimal={true}>
+      <DropdownGroup>
+        <DropdownItem text="Account settings" onClick={dummyClick}></DropdownItem>
+        <DropdownItem text="Support" href="#"></DropdownItem>
+        <DropdownItem text="License" href="#"></DropdownItem>
+        <DropdownItem text="Sign out" onClick={dummyClick}></DropdownItem>
+      </DropdownGroup>
+    </Dropdown>
+  ),
+};
