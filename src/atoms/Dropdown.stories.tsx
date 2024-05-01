@@ -1,7 +1,6 @@
 import {
   ArchiveBoxIcon,
   ArrowRightCircleIcon,
-  ChevronDownIcon,
   DocumentDuplicateIcon,
   HeartIcon,
   PencilSquareIcon,

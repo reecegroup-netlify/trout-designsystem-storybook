@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ButtonDropdown } from "./ButtonDropdown";
 
 const meta = {
-  title: "Atoms/Button",
+  title: "Atoms/Button/ButtonDropdown",
   component: ButtonDropdown,
   parameters: {
     controls: { sort: "requiredFirst" },
@@ -27,4 +27,4 @@ const dropdownSelections = [
   { content: "Export PDF", clickHandler: dummyClick },
 ];
 
-export const Dropdown: Story = { args: { groupItems: dropdownSelections } };
+export const BasicButtonDropdown: Story = { args: { groupItems: dropdownSelections } };

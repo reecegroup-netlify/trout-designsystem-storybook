@@ -2,7 +2,6 @@ import { Canvas, Meta, Story, Title } from "@storybook/blocks";
 
 import * as ButtonStories from "./Button.stories";
 import * as ButtonGroupStories from "./ButtonGroup.stories";
-import * as ButtonDropdownStories from "./ButtonDropdown.stories";
 import * as IconButtonStories from "./IconButton.stories";
 
 # Buttons
@@ -25,10 +24,9 @@ Buttons can be icon-only. These icons are from Tailwind's companion icon library
 
 <Canvas of={IconButtonStories.IconOnly} />
 
-<Title>Button Groups & Dropdowns</Title>
+<Title>Button Groups</Title>
 
-Aside from grouping buttons on the fly, we have pre-coded Button Groups & Dropdowns for specific situations.
+Aside from grouping buttons on the fly, we have pre-coded Button Groups for specific situations.
 
 <Canvas of={ButtonGroupStories.WithWords} />
 <Canvas of={ButtonGroupStories.WithIcons} />
-<Canvas of={ButtonDropdownStories.Dropdown} story={{ height: "125px" }} />
