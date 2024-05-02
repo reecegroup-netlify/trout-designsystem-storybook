@@ -35,4 +35,5 @@ jobs:
           automatic_release_tag: "latest"
           title: "Production Build"
           files: |
+            LICENSE.txt
             README.md
