@@ -1,0 +1,33 @@
+# This workflow will create a GitHub release every time a tag is pushed
+name: Create GitHub Release
+
+on:
+  push:
+    branches: "*"
+    # branches: [next]
+    # tags:
+    #   - "v2.*"
+    #   - "v3.*"
+
+  # pull_request:
+  #   branches: [main]
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Build & test"
+        run: |
+          echo "done!"
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          # draft: false
+          # prerelease: true
+          automatic_release_tag: "latest"
+          title: "Production Build"
+          # files: |
+          #   LICENSE.txt
+          #   *.jar
