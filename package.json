@@ -5,7 +5,7 @@
     "registry": "https://npm.pkg.github.com/reecegroup-netlify"
   },
   "repository": "https://github.com/reecegroup-netlify/trout-designsystem-storybook",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": false,
   "scripts": {
     "dev": "storybook dev -p 6006",
