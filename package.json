@@ -1,5 +1,6 @@
 {
   "name": "@reecegroup-netlify/trout-designsystem-storybook",
+  "description": "Design System that uses the reecegroup-netlify/trout-designsystem-storybook package",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/reecegroup-netlify"
   },

@@ -12,9 +12,38 @@ on:
   pull_request:
     branches: [main]
 
+
+    on:
+      push:
+        branches: main
+
   workflow_dispatch:
 
 jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write # allow GITHUB_TOKEN to publish packages
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+  
+      - run: npm ci
+
+      - run: npm build
+
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          registry: "https://npm.pkg.github.com"
+
   release:
     name: Release
     runs-on: ubuntu-latest
@@ -34,6 +63,4 @@ jobs:
           prerelease: true
           automatic_release_tag: "latest"
           title: "Production Build"
-          files: |
-            LICENSE.txt
-            README.md
+          files: "*"
