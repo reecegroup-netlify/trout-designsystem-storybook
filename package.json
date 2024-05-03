@@ -1,7 +1,12 @@
 {
-  "name": "trout-designsystem-storybook",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@reecegroup-netlify/trout-designsystem-storybook",
+  "description": "Design System that uses the reecegroup-netlify/trout-designsystem-storybook package",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/reecegroup-netlify"
+  },
+  "repository": "https://github.com/reecegroup-netlify/trout-designsystem-storybook",
+  "version": "0.1.4",
+  "private": false,
   "scripts": {
     "dev": "storybook dev -p 6006",
     "start": "npm run dev",

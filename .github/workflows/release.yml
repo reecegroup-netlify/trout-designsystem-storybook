@@ -9,13 +9,74 @@ on:
     #   - "v2.*"
     #   - "v3.*"
 
-  # pull_request:
-  #   branches: [main]
+  pull_request:
+    branches: [main]
+
+
+    on:
+      push:
+        branches: main
+
+  workflow_dispatch:
 
 jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # allow GITHUB_TOKEN to write to the package.json file
+      packages: write # allow GITHUB_TOKEN to publish packages
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+  
+      - run: npm ci
+
+      - run: npm run build
+
+      - name:  'Automated Version Bump'
+        uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag-suffix:  '-beta'
+
+      - name: 'cat package.json'
+        run: cat ./package.json
+
+      - name: 'Automated Version Bump'
+        id: version-bump
+        uses: 'phips28/gh-action-bump-version@master'
+        # with:
+        #   tag-prefix: 'v'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: 'cat package.json'
+        run: cat ./package.json
+
+      - name: 'Output Step'
+        env:
+          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+        run: echo "new tag $NEW_TAG"
+
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          registry: "https://npm.pkg.github.com"
+
   release:
     name: Release
     runs-on: ubuntu-latest
+
+    permissions: 
+      contents: write
+      
     steps:
       - name: "Build & test"
         run: |
@@ -25,9 +86,6 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           # draft: false
-          # prerelease: true
+          prerelease: true
           automatic_release_tag: "latest"
           title: "Production Build"
-          # files: |
-          #   LICENSE.txt
-          #   *.jar
