@@ -89,4 +89,5 @@ jobs:
           prerelease: true
           automatic_release_tag: "latest"
           title: "Production Build"
-          files: "*"
+          files: |
+            README.md
