@@ -71,31 +71,23 @@ export const WithIcons: Story = {
   render: () => (
     <Dropdown>
       <DropdownGroup>
-        <DropdownItem text="Edit" onClick={dummyClick} icon={<PencilSquareIcon />}></DropdownItem>
+        <DropdownItem text="Edit" onClick={dummyClick} Icon={PencilSquareIcon}></DropdownItem>
         <DropdownItem
           text="Duplicate"
           onClick={dummyClick}
-          icon={<DocumentDuplicateIcon />}
+          Icon={DocumentDuplicateIcon}
         ></DropdownItem>
       </DropdownGroup>
       <DropdownGroup>
-        <DropdownItem text="Archive" onClick={dummyClick} icon={<ArchiveBoxIcon />}></DropdownItem>
-        <DropdownItem
-          text="Move"
-          onClick={dummyClick}
-          icon={<ArrowRightCircleIcon />}
-        ></DropdownItem>
+        <DropdownItem text="Archive" onClick={dummyClick} Icon={ArchiveBoxIcon}></DropdownItem>
+        <DropdownItem text="Move" onClick={dummyClick} Icon={ArrowRightCircleIcon}></DropdownItem>
       </DropdownGroup>
       <DropdownGroup>
-        <DropdownItem text="Share" href="#" icon={<UserPlusIcon />}></DropdownItem>
-        <DropdownItem
-          text="Add to favourites"
-          onClick={dummyClick}
-          icon={<HeartIcon />}
-        ></DropdownItem>
+        <DropdownItem text="Share" href="#" Icon={UserPlusIcon}></DropdownItem>
+        <DropdownItem text="Add to favourites" onClick={dummyClick} Icon={HeartIcon}></DropdownItem>
       </DropdownGroup>
       <DropdownGroup>
-        <DropdownItem text="Delete" onClick={dummyClick} icon={<TrashIcon />}></DropdownItem>
+        <DropdownItem text="Delete" onClick={dummyClick} Icon={TrashIcon}></DropdownItem>
       </DropdownGroup>
     </Dropdown>
   ),

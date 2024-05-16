@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon, EllipsisVerticalIcon } from "@heroicons/react/24/solid";
-import React from "react";
+import React, { ComponentType } from "react";
 import { Fragment, ReactElement } from "react";
 
 type ButtonDropdownItem = {
@@ -16,29 +16,26 @@ type AnchorDropdownItem = {
 
 type DropdownItemProps = (ButtonDropdownItem | AnchorDropdownItem) & {
   text: string;
-  icon?: JSX.Element;
+  Icon?: ComponentType<{ className?: string }>;
 };
 
-export function DropdownItem(props: DropdownItemProps) {
-  const Element = props.href ? "a" : "button";
+export function DropdownItem({ text, Icon, onClick, href }: DropdownItemProps) {
+  const Element = href ? "a" : "button";
   const isButton = Element === "button";
   return (
     <Menu.Item>
       {({ active }) => (
         <Element
           type={isButton ? "button" : undefined}
-          href={!isButton ? props.href : undefined}
-          onClick={isButton ? props.onClick : undefined}
+          href={!isButton ? href : undefined}
+          onClick={isButton ? onClick : undefined}
           className={cn(
             active ? "bg-gray-100 text-gray-900" : "text-gray-700",
             "flex w-full px-4 py-2 text-left text-sm"
           )}
         >
-          {props.icon &&
-            React.cloneElement(props.icon, {
-              className: "mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500",
-            })}
-          {props.text}
+          {Icon && <Icon className={"mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"} />}
+          {text}
         </Element>
       )}
     </Menu.Item>
